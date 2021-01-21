@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.78" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.0-alpha.2" /> 
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cap.Core\DotNetCore.CAP.Dashboard\DotNetCore.CAP.Dashboard.csproj" />
+    <ProjectReference Include="..\Cap.Core\DotNetCore.CAP.MySql\DotNetCore.CAP.MySql.csproj" />
+    <ProjectReference Include="..\Cap.Core\DotNetCore.CAP.RabbitMQ\DotNetCore.CAP.RabbitMQ.csproj" />
+    <ProjectReference Include="..\Cap.Core\DotNetCore.CAP\DotNetCore.CAP.csproj" />
+  </ItemGroup>
+
+</Project>
