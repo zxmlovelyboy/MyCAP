@@ -20,8 +20,7 @@ namespace DotNetCore.CAP.Internal
         private readonly IDataStorage _storage;
 
         // ReSharper disable once InconsistentNaming
-        protected static readonly DiagnosticListener s_diagnosticListener =
-            new DiagnosticListener(CapDiagnosticListenerNames.DiagnosticListenerName);
+        protected static readonly DiagnosticListener s_diagnosticListener = new DiagnosticListener(CapDiagnosticListenerNames.DiagnosticListenerName);
 
         public CapPublisher(IServiceProvider service)
         {
@@ -40,8 +39,7 @@ namespace DotNetCore.CAP.Internal
             return Task.Run(() => Publish(name, value, headers), cancellationToken);
         }
 
-        public Task PublishAsync<T>(string name, T value, string callbackName = null,
-            CancellationToken cancellationToken = default)
+        public Task PublishAsync<T>(string name, T value, string callbackName = null, CancellationToken cancellationToken = default)
         {
             return Task.Run(() => Publish(name, value, callbackName), cancellationToken);
         }
@@ -70,7 +68,7 @@ namespace DotNetCore.CAP.Internal
                 var messageId = SnowflakeId.Default().NextId().ToString();
                 headers.Add(Headers.MessageId, messageId);
             }
-             
+
             if (!headers.ContainsKey(Headers.CorrelationId))
             {
                 headers.Add(Headers.CorrelationId, headers[Headers.MessageId]);

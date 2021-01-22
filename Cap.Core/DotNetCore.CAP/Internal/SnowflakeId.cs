@@ -5,6 +5,9 @@ using System;
 
 namespace DotNetCore.CAP.Internal
 {
+    /// <summary>
+    /// 雪崩场景
+    /// </summary>
     public class SnowflakeId
     {
         public const long Twepoch = 1288834974657L;
@@ -47,6 +50,7 @@ namespace DotNetCore.CAP.Internal
 
         public static SnowflakeId Default()
         {
+            //分布式事务锁
             lock (SLock)
             {
                 if (_snowflakeId != null)
@@ -77,13 +81,13 @@ namespace DotNetCore.CAP.Internal
                 var timestamp = TimeGen();
 
                 if (timestamp < _lastTimestamp)
-                    throw new Exception(
-                        $"InvalidSystemClock: Clock moved backwards, Refusing to generate id for {_lastTimestamp - timestamp} milliseconds");
+                    throw new Exception($"InvalidSystemClock: Clock moved backwards, Refusing to generate id for {_lastTimestamp - timestamp} milliseconds");
 
                 if (_lastTimestamp == timestamp)
                 {
                     Sequence = (Sequence + 1) & SequenceMask;
-                    if (Sequence == 0) timestamp = TilNextMillis(_lastTimestamp);
+                    if (Sequence == 0) 
+                        timestamp = TilNextMillis(_lastTimestamp);
                 }
                 else
                 {
@@ -106,6 +110,10 @@ namespace DotNetCore.CAP.Internal
             return timestamp;
         }
 
+        /// <summary>
+        /// 生成时间戳
+        /// </summary>
+        /// <returns></returns>
         protected virtual long TimeGen()
         {
             return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
