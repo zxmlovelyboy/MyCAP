@@ -1,0 +1,13 @@
+/.vs/SZ.CAP/v16/*.suo
+/.vs/SZ.CAP/DesignTimeBuild/*.v2
+/.vs/SZ.CAP/config/applicationhost.config
+/Cap.Core/DotNetCore.CAP/obj
+/Cap.Core/DotNetCore.CAP/bin
+/Cap.Core/DotNetCore.CAP.Dashboard/obj
+/Cap.Core/DotNetCore.CAP.Dashboard/bin
+/Cap.Core/DotNetCore.CAP.MySql/obj
+/Cap.Core/DotNetCore.CAP.MySql/bin
+/Cap.Core/DotNetCore.CAP.RabbitMQ/obj
+/Cap.Core/DotNetCore.CAP.RabbitMQ/bin
+/SZ.RabbitMQ.MySql/obj
+/SZ.RabbitMQ.MySql/bin

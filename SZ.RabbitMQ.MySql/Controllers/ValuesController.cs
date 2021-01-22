@@ -18,17 +18,16 @@ namespace SZ.RabbitMQ.MySql.Controllers
             _capBus = capPublisher;
         }
 
-        //[Route("~/without/transaction")]
-        [Route("without")]
+        [Route("~/without/transaction")]
+        //[Route("without")]
         public async Task<IActionResult> WithoutTransaction()
         {
             await _capBus.PublishAsync("SZ.RabbitMQ.MySql", DateTime.Now);
 
-            return Ok();
+            return Ok("普通发布成功。" + DateTime.Now.ToString("F"));
         }
 
-        [Route("test")]
-        //[Route("~/adonet/transaction")]
+        [Route("~/dapper/transaction")]
         public IActionResult AdonetWithTransaction()
         {
             using (var connection = new MySqlConnection(AppDbContext.ConnectionString))
@@ -37,18 +36,17 @@ namespace SZ.RabbitMQ.MySql.Controllers
                 {
                     //your business code
                     connection.Execute("insert into test(name) values('test')", transaction: (IDbTransaction)transaction.DbTransaction);
-
                     //for (int i = 0; i < 5; i++)
                     //{
                     _capBus.Publish("SZ.RabbitMQ.MySql", DateTime.Now);
                     //}
                 }
             }
-            return Ok("Write a record into testcap[test]");
+            return Ok("dapper执行插入数据到数据表。" + DateTime.Now.ToString("F"));
         }
 
-        //[Route("~/ef/transaction")]
-        [Route("ef")]
+        [Route("~/ef/transaction")]
+        //[Route("ef")]
         public IActionResult EntityFrameworkWithTransaction([FromServices]AppDbContext dbContext)
         {
             using (var trans = dbContext.Database.BeginTransaction(_capBus, autoCommit: false))
@@ -64,7 +62,7 @@ namespace SZ.RabbitMQ.MySql.Controllers
 
                 trans.Commit();
             }
-            return Ok("EF add peron");
+            return Ok("EF Code First 新增数据到Persons " + DateTime.Now.ToString("F"));
         }
 
         [NonAction]
