@@ -11,3 +11,5 @@
 /Cap.Core/DotNetCore.CAP.RabbitMQ/bin
 /SZ.RabbitMQ.MySql/obj
 /SZ.RabbitMQ.MySql/bin
+/SZ.CAP.Redis/obj
+/SZ.CAP.Redis/bin
