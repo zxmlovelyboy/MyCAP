@@ -13,3 +13,5 @@
 /SZ.RabbitMQ.MySql/bin
 /SZ.CAP.Redis/obj
 /SZ.CAP.Redis/bin
+/SZ.RabbitMQ.MongoDB/obj
+/SZ.RabbitMQ.MongoDB/bin
