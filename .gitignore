@@ -15,3 +15,7 @@
 /SZ.CAP.Redis/bin
 /SZ.RabbitMQ.MongoDB/obj
 /SZ.RabbitMQ.MongoDB/bin
+/SZ.DistributedCache.Redis/obj
+/SZ.DistributedCache.Redis/bin
+/SZ.DistributedCache.ServerSQL/obj
+/SZ.DistributedCache.ServerSQL/bin

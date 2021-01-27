@@ -16,7 +16,7 @@ namespace DotNetCore.CAP.MongoDB
         /// MongoDB database connection string.
         /// Default value: "mongodb://localhost:27017"
         /// </summary>
-        public string DatabaseConnection { get; set; } = "mongodb://localhost:27017";
+        public string DatabaseConnection { get; set; } = "mongodb://192.168.40.188:27017";
 
         /// <summary>
         /// MongoDB received message collection name.

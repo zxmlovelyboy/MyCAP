@@ -62,7 +62,8 @@ namespace DotNetCore.CAP
         public static ICapTransaction Begin(this ICapTransaction transaction,
             IClientSessionHandle dbTransaction, bool autoCommit = false)
         {
-            if (!dbTransaction.IsInTransaction) dbTransaction.StartTransaction();
+            if (!dbTransaction.IsInTransaction) 
+                dbTransaction.StartTransaction();
 
             transaction.DbTransaction = dbTransaction;
             transaction.AutoCommit = autoCommit;
